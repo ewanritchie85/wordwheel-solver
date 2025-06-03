@@ -10,7 +10,7 @@ SHELL := /bin/bash
 PROFILE = default
 PIP := pip
 PYTHONPATH := $(shell pwd)/src
-TEST_DIR := test
+TEST_DIR := tests
 
 
 ## Create the Python virtual environment
@@ -54,13 +54,13 @@ security-test: ## Run bandit and safety security tests
 	$(call execute_in_env, bandit -lll */*/*.py *c/*/*.py)
 
 run-black: ## Run black to check code formatting
-	$(call execute_in_env, black  ./src/*/*.py ./test/*/*.py)
+	$(call execute_in_env, black  ./src/*/*.py ./tests/*/*.py)
 
 unit-test: ## Run unit tests using pytest
 	$(call execute_in_env, PYTHONPATH=${PYTHONPATH} pytest)
 
 check-coverage: ## Run test coverage check
-	$(call execute_in_env, PYTHONPATH=${PYTHONPATH} pytest --cov=src test/)
+	$(call execute_in_env, PYTHONPATH=${PYTHONPATH} pytest --cov=src tests/)
 	
 run-checks: security-test run-black check-coverage ## Run all checks
 
