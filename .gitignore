@@ -1,0 +1,17 @@
+venv/
+.venv/
+
+.env
+.env.*
+
+requirements.txt
+
+__pycache__/
+
+.vscode/
+
+.DS_Store
+Thumbs.db
+
+.coverage
+.pytest_cache/
