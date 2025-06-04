@@ -1,4 +1,4 @@
-def create_word_list():
+def create_word_list() -> None:
     """
     Reads all words from /usr/share/dict/words and filters
     out words not accepted by the game - then writes them to a file.
