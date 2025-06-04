@@ -1,4 +1,4 @@
-def centre_letter_input() -> str:
+def input_centre_letter() -> str:
     """
     Prompts the user to input a single letter that will be the centre letter of the game.
 
@@ -11,10 +11,14 @@ def centre_letter_input() -> str:
     centre_letter = (
         input("Please enter a single letter to be the centre letter: ").strip().lower()
     )
-    return centre_letter
+    if centre_letter.isalpha() and len(centre_letter) == 1:
+        return centre_letter
+    else:
+        raise ValueError(f"Invalid input: '{centre_letter}'. Please enter a single letter.")
 
 
-def outer_letters_input() -> list:
+
+def input_outer_letters() -> list:
     """
     Prompts the user to input a list of letters that will be the outer letters of the game.
 
@@ -28,6 +32,13 @@ def outer_letters_input() -> list:
         input("Please enter 7 letters to be the outer letters: ").strip().lower()
     )
     outer_letters_list = []
-    outer_letters_list.extend(outer_letters)
-
-    return outer_letters_list
+    for letter in outer_letters:
+        if letter.isalpha():
+            outer_letters_list.append(letter)
+            
+    if len(outer_letters_list) == 7:
+        return outer_letters_list
+    else:
+        raise ValueError(
+            f"Invalid input: '{outer_letters}'. Please enter exactly 7 letters."
+        )
