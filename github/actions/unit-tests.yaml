@@ -1,0 +1,21 @@
+name: unit tests
+on:
+  push:
+    branches:
+      - main
+  jobs:
+    unit-tests:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+
+        - name: Set up Python
+          uses: actions/setup-python@v4
+          with:
+            python-version: '3.11'
+
+        - name: Install and run tests in one shell
+          run: |
+            make requirements
+            make unit-test
