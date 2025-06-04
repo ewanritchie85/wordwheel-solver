@@ -15,7 +15,12 @@ on:
           with:
             python-version: '3.11'
 
-        - name: Install and run tests in one shell
+        - name: Install and run tests
           run: |
             make requirements
             make unit-test
+
+        - name: Checks
+          run: |
+            make dev-setup
+            make run-checks
