@@ -27,7 +27,7 @@ def find_valid_words(combos: list[tuple], dictionary: set[str]) -> set[str]:
 
     Args:
         combos (list[tuple]): output of find_valid_combos function
-        dictionary (set[str]): set of words from the dictionary created by create_word_list
+        dictionary (set[str]): set of words from word_list.txt
 
     Returns:
         set[str]: a set of valid word matches from the dictionary
