@@ -22,3 +22,4 @@ def create_word_list():
             output_file.write(word + "\n")
 
     return
+
