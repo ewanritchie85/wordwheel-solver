@@ -14,8 +14,9 @@ def input_centre_letter() -> str:
     if centre_letter.isalpha() and len(centre_letter) == 1:
         return centre_letter
     else:
-        raise ValueError(f"Invalid input: '{centre_letter}'. Please enter a single letter.")
-
+        raise ValueError(
+            f"Invalid input: '{centre_letter}'. Please enter a single letter."
+        )
 
 
 def input_outer_letters() -> list:
@@ -35,7 +36,7 @@ def input_outer_letters() -> list:
     for letter in outer_letters:
         if letter.isalpha():
             outer_letters_list.append(letter)
-            
+
     if len(outer_letters_list) == 7:
         return outer_letters_list
     else:

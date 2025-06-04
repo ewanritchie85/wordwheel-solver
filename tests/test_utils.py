@@ -30,7 +30,6 @@ class TestCreateWordList:
                 4 <= len(word) <= 9
             ), f"Word '{word}' is not between 4 and 9 characters long."
 
-
         for word in get_word_list():
             word = word.strip()
             assert word.islower(), f"Word '{word}' is not in lower case."
