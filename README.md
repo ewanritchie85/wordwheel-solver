@@ -5,7 +5,7 @@ A Python tool to solve wordwheel puzzles by finding all valid words from a set o
 ## Features
 
 - Finds all possible words from a given set of 8 outer letters and one central letter
-- Uses the EWOL word list, but can be adapted to use others
+- Uses the EWOL word list (./data/word_list.txt), but can be adapted to use others
 - Command-line interface
 
 ## Installation
@@ -17,13 +17,13 @@ make requirements
 ```
 
 ## Usage
-
+Run the app 
 ```bash
-python solver.py --letters abcdefg --center a
+python src/main.py 
 ```
+enter a single letter
+enter 8 letters
 
-- `--letters`: All available letters
-- `--center`: The required center letter
 
 ## Example
 

@@ -9,7 +9,7 @@ def input_centre_letter() -> str:
         str: The centre letter input by the user.
     """
     centre_letter = (
-        input("Please enter a single letter to be the centre letter: ").strip().lower()
+        input("Please enter the central letter: ").strip().lower()
     )
     if centre_letter.isalpha() and len(centre_letter) == 1:
         return centre_letter
@@ -30,7 +30,7 @@ def input_outer_letters() -> list:
         list: A list of letters input by the user.
     """
     outer_letters = (
-        input("Please enter 8 letters to be the outer letters: ").strip().lower()
+        input("Please enter the eight outer letters: ").strip().lower()
     )
     outer_letters_list = []
     for letter in outer_letters:
@@ -41,5 +41,5 @@ def input_outer_letters() -> list:
         return outer_letters_list
     else:
         raise ValueError(
-            f"Invalid input: '{outer_letters}'. Please enter exactly 7 letters."
+            f"Invalid input: '{outer_letters}'. Please enter 8 letters."
         )
