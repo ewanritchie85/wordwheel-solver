@@ -30,14 +30,14 @@ def input_outer_letters() -> list:
         list: A list of letters input by the user.
     """
     outer_letters = (
-        input("Please enter 7 letters to be the outer letters: ").strip().lower()
+        input("Please enter 8 letters to be the outer letters: ").strip().lower()
     )
     outer_letters_list = []
     for letter in outer_letters:
         if letter.isalpha():
             outer_letters_list.append(letter)
 
-    if len(outer_letters_list) == 7:
+    if len(outer_letters_list) == 8:
         return outer_letters_list
     else:
         raise ValueError(

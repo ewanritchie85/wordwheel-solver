@@ -14,7 +14,6 @@ def create_word_list():
     with open(source_dir, "r", encoding="utf-8") as input_file, open(
         destination_dir, "w", encoding="utf-8"
     ) as output_file:
-        word_list = []
         for line in input_file:
             word = line.strip()
             if word[0].isupper() or len(word) < 4 or len(word) > 9:

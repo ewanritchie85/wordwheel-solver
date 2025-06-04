@@ -24,16 +24,16 @@ class TestCentreLetterInput:
 
 class TestOuterLettersInput:
     def test_input_outer_letters(self, monkeypatch):
-        monkeypatch.setattr("builtins.input", lambda _: "abcdefg")
-        assert input_outer_letters() == ["a", "b", "c", "d", "e", "f", "g"]
+        monkeypatch.setattr("builtins.input", lambda _: "abcdefgh")
+        assert input_outer_letters() == ["a", "b", "c", "d", "e", "f", "g", "h"]
 
     def test_input_outer_letters_with_spaces(self, monkeypatch):
-        monkeypatch.setattr("builtins.input", lambda _: " a b c d e f g ")
-        assert input_outer_letters() == ["a", "b", "c", "d", "e", "f", "g"]
+        monkeypatch.setattr("builtins.input", lambda _: " a b c d e f g h")
+        assert input_outer_letters() == ["a", "b", "c", "d", "e", "f", "g", "h"]
 
     def test_input_outer_letters_lowercase(self, monkeypatch):
-        monkeypatch.setattr("builtins.input", lambda _: "ABCDEFG")
-        assert input_outer_letters() == ["a", "b", "c", "d", "e", "f", "g"]
+        monkeypatch.setattr("builtins.input", lambda _: "ABCDEFGH")
+        assert input_outer_letters() == ["a", "b", "c", "d", "e", "f", "g", "h"]
 
     def test_input_outer_letters_invalid_length(self, monkeypatch):
         monkeypatch.setattr("builtins.input", lambda _: "abcde")
@@ -41,6 +41,6 @@ class TestOuterLettersInput:
             input_outer_letters()
 
     def test_input_outer_letters_invalid_characters(self, monkeypatch):
-        monkeypatch.setattr("builtins.input", lambda _: "abc1efg")
+        monkeypatch.setattr("builtins.input", lambda _: "abc1efg4")
         with pytest.raises(ValueError):
             input_outer_letters()
