@@ -57,7 +57,7 @@ def solve(centre_letter: str, outer_letters: list[str]) -> list[str]:
     return sorted(find_valid_words(combos, dictionary))
 
 
-def get_valid_word_count(valid_words: set) -> int:
+def get_valid_word_count(valid_words: set[str]) -> int:
     """
     Returns the number of valid words in the provided set.
 
