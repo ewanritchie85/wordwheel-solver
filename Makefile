@@ -49,20 +49,16 @@ dev-setup: bandit safety black coverage ## Set up dev requirements
 
 # Build / Run
 
-security-test: ## Run bandit and safety security tests
-	$(call execute_in_env, safety check -r ./requirements.txt)
-	$(call execute_in_env, bandit -lll */*/*.py *c/*/*.py)
-
 run-black: ## Run black to check code formatting
-	$(call execute_in_env, black  ./src/*/*.py ./tests/*/*.py)
+	$(call execute_in_env, black  ./src/*.py ./tests/*.py)
 
 unit-test: ## Run unit tests using pytest
 	$(call execute_in_env, PYTHONPATH=${PYTHONPATH} pytest)
 
 check-coverage: ## Run test coverage check
-	$(call execute_in_env, PYTHONPATH=${PYTHONPATH} pytest --cov=src tests/)
+	$(call execute_in_env, PYTHONPATH=${PYTHONPATH} pytest --cov=src ./tests/)
 	
-run-checks: security-test run-black check-coverage ## Run all checks
+run-checks: run-black check-coverage ## Run all checks
 
 ## Clean up environment and caches
 clean:

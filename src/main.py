@@ -30,10 +30,10 @@ def main():
     print("Words:")
 
     print(valid_words)
-    
+
     while True:
         choice = input("Press 'x' to exit: ").strip().lower()
-        if choice == 'x':
+        if choice == "x":
             print("Goodbye")
             break
         print("Invalid input. Please press 'x' to exit.")
