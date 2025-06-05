@@ -45,11 +45,12 @@ black: ## Install black: formats code to follow PEP 8.
 coverage: ## Install coverage: measures code coverage.
 	$(call execute_in_env, $(PIP) install coverage)
 
-dev-setup: bandit safety black coverage ## Set up dev requirements
+dev-setup: bandit safety black coverage ## Install Bandit, Black Coverage and Safety
+	$(call execute_in_env, $(PIP) install -r requirements.txt)
 
 # Build / Run
 
-run-black: ## Run black to check code formatting
+run-black: ## Run black to carry out PEP8 formatting
 	$(call execute_in_env, black  ./src/*.py ./tests/*.py)
 
 unit-test: ## Run unit tests using pytest
@@ -58,13 +59,12 @@ unit-test: ## Run unit tests using pytest
 check-coverage: ## Run test coverage check
 	$(call execute_in_env, PYTHONPATH=${PYTHONPATH} pytest --cov=src ./tests/)
 	
-run-checks: run-black check-coverage ## Run all checks
+run-checks: run-black unit-test check-coverage ## Run Black, unit tests and coverage checks
 
-## Clean up environment and caches
-clean:
+clean: ## Clean up environment and caches
+
 	rm -rf venv __pycache__ .pytest_cache .mypy_cache .coverage
 
-## Show available make targets
-help:
+help: ## Show available make targets
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
-	awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
+	# awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
