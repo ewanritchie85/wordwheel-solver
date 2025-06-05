@@ -13,7 +13,7 @@ def solve_words():
 
     Returns:
         JSON: List of valid words based on the centre letter
-        and outer letters provided in the  request.
+        and outer letters provided in the request.
     """
     data = request.get_json()
     centre_letter = data.get("centre_letter", "")
