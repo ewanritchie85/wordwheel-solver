@@ -21,7 +21,7 @@ jobs:
         working-directory: ~/wordwheel-solver
         run: |
             git pull origin main
-            make requirements
+            source venv/bin/activate
             
       - name: Restart Flask wordwheel api
         run: |
