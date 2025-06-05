@@ -17,7 +17,7 @@ def solve_words():
     """
     data = request.get_json()
     centre_letter = data.get("centre_letter", "")
-    outer_letters = data.get("outer_letters", "")
+    outer_letters = data.get("outer_letters", [])
     print(f"Received centre: {centre_letter}, outer: {outer_letters}") # for debugging
     words = solve(centre_letter, outer_letters)
     return jsonify({"words": words})
