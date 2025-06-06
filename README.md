@@ -4,9 +4,9 @@ A Python tool to solve wordwheel puzzles by finding all valid words from a set o
 
 ## Features
 
-- Finds all possible words from a given set of 8 outer letters and one central letter
-- Uses the EWOL word list (./data/word_list.txt), but can be adapted to use others
-- Command-line interface
+- Finds all valid words from 8 outer letters and 1 central letter
+- Uses the EWOL word list (`./word_list.txt`) but can be adapted
+- Includes a CLI and Flask API interface for flexibility
 
 ## Installation
 
@@ -17,18 +17,39 @@ make requirements
 ```
 
 ## Usage
-Run the app 
+
+### CLI mode
+Run the app with:
 ```bash
-python src/main.py 
+python src/main.py
 ```
-enter a single letter
-enter 8 letters
+You will be prompted to enter a centre letter and 8 outer letters.
+
+### Flask API mode
+Start the server with:
+```bash
+export FLASK_APP=api/solve.py
+export PYTHONPATH=$(pwd)
+flask run
+```
+
+Send a POST request to the API:
+```bash
+curl -X POST http://127.0.0.1:5000/api/solve \
+     -H "Content-Type: application/json" \
+     -d '{"centre_letter": "e", "outer_letters": ["b", "c", "d", "f", "g", "h", "i", "j"]}'
+```
 
 
-## Example
+## Example (CLI)
 
 ```bash
-python solver.py --letters rstlnea --center e
+python src/main.py
+```
+Sample input:
+```
+Centre letter: e
+Outer letters: bcdghij
 ```
 
 ## License
@@ -38,3 +59,11 @@ MIT License
 ## Contributing
 
 Pull requests are welcome! For major changes, please open an issue first.
+
+## Development
+
+To run unit tests and check coverage:
+```bash
+make run-checks
+```
+Ensure that `word_list.txt` is present in the root directory.

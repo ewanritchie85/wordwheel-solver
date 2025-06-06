@@ -4,6 +4,7 @@ from src.solver import solve
 app = Flask(__name__)
 
 
+
 @app.route("/api/solve", methods=["POST"])
 def solve_words():
     """
